@@ -241,8 +241,13 @@ export default function Home() {
               e.preventDefault()
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="flex items-center gap-1.5 group"
+            className="flex items-center gap-2 group"
           >
+            <img
+              src="/logo-fc.png"
+              alt="FC"
+              className="h-6 w-6 md:h-7 md:w-7 rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <span className="text-sm md:text-base font-extrabold text-foreground tracking-tight">
               FC <span className="text-primary">IA</span> Studio
             </span>
