@@ -84,26 +84,23 @@ const PORTFOLIO = [
   {
     title: 'Sosa y Asociados',
     url: 'https://estudio-juridico-sosay-asociados.vercel.app/',
+    image: '/portfolio-sosa.jpg',
     description:
       'Sitio web profesional diseñado para un estudio jurídico de referencia. Presenta todos los servicios legales de forma clara y accesible, permitiendo que los clientes puedan solicitar una consulta en cualquier momento desde cualquier dispositivo. Una experiencia digital que transmite seriedad, confianza y cercanía.',
-    color: 'from-blue-900/80 to-slate-900/80',
-    accent: '#3b82f6',
   },
   {
     title: 'GianFranco Hair Art',
     url: 'https://gianfrancoportafolio.vercel.app/',
+    image: '/portfolio-gianfranco.jpg',
     description:
       'Portfolio interactivo para un estilista profesional. Muestra quién es, su trabajo y todo lo que hace, con un diseño que invita a conectarse directamente con él y conseguir turnos de manera simple y rápida. Una presencia digital que refleja su estilo y profesionalismo.',
-    color: 'from-amber-900/80 to-rose-900/80',
-    accent: '#f59e0b',
   },
   {
     title: 'Congreso Hechos 2',
     url: 'https://www.congresohechos2.com.ar/',
+    image: '/portfolio-congreso.jpg',
     description:
       'Web de evento religioso completamente responsive e interactiva. Incluye contador regresivo, implementación de video, botones interactivos, secciones de recomendaciones, galería de imágenes y toda la información necesaria. Un diseño que genera expectativa y facilita el acceso a cada detalle del congreso.',
-    color: 'from-purple-900/80 to-indigo-900/80',
-    accent: '#a855f7',
   },
 ]
 
@@ -456,50 +453,26 @@ export default function Home() {
             {PORTFOLIO.map((project, i) => (
               <FadeInWhenVisible key={project.title} delay={i * 0.15}>
                 <div className="portfolio-card glass rounded-2xl overflow-hidden group h-full flex flex-col">
-                  {/* Thumbnail area */}
-                  <div
-                    className={`relative h-48 md:h-56 bg-gradient-to-br ${project.color} flex items-center justify-center overflow-hidden`}
+                  {/* Thumbnail area - clickable preview image */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative h-48 md:h-56 overflow-hidden block"
                   >
-                    {/* Decorative pattern */}
-                    <div
-                      className="absolute inset-0 opacity-10"
-                      style={{
-                        backgroundImage: `
-                          linear-gradient(${project.accent}33 1px, transparent 1px),
-                          linear-gradient(90deg, ${project.accent}33 1px, transparent 1px)
-                        `,
-                        backgroundSize: '30px 30px',
-                      }}
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="text-center relative z-10">
-                      <div
-                        className="w-16 h-16 mx-auto mb-3 rounded-xl flex items-center justify-center"
-                        style={{ backgroundColor: `${project.accent}22` }}
-                      >
-                        <Globe className="size-8" style={{ color: project.accent }} />
-                      </div>
-                      <h4 className="text-xl font-bold text-white/90">
-                        {project.title}
-                      </h4>
-                    </div>
                     {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 flex items-center justify-center">
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
-                      >
-                        <Button
-                          size="sm"
-                          className="bg-primary/90 text-primary-foreground hover:bg-primary glow-cyan"
-                        >
-                          <ExternalLink className="mr-2 size-4" />
-                          Ver Proyecto
-                        </Button>
-                      </a>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-500 flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 inline-flex items-center gap-2 bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold">
+                        <ExternalLink className="size-4" />
+                        Ver Proyecto
+                      </span>
                     </div>
-                  </div>
+                  </a>
 
                   {/* Description */}
                   <div className="p-5 md:p-6 flex-1 flex flex-col">
@@ -629,7 +602,7 @@ export default function Home() {
                   francocarreno.iastudio@gmail.com
                 </p>
                 <p className="text-muted-foreground text-sm mb-6">Email</p>
-                <a href={EMAIL_URL} className="w-full">
+                <a href="mailto:francocarreno.iastudio@gmail.com" className="w-full">
                   <Button
                     size="lg"
                     variant="outline"
@@ -663,7 +636,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Left: Logo + copyright */}
             <div className="flex flex-col items-center md:items-start">
-              <div className="flex items-center gap-1.5 mb-3">
+              <div className="flex items-center gap-2 mb-3">
+                <img
+                  src="/logo-fc.png"
+                  alt="FC"
+                  className="h-5 w-5 rounded-full object-cover"
+                />
                 <span className="font-extrabold text-foreground text-sm">
                   FC <span className="text-primary">IA</span> Studio
                 </span>
