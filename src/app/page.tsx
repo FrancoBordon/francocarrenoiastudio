@@ -175,76 +175,7 @@ function FadeInWhenVisible({
   )
 }
 
-/* ─── Particle / Circuit Lines for Hero ─────────────────────── */
 
-function HeroParticles() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Grid lines */}
-      <div className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(0,191,255,1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,191,255,1) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
-        }}
-      />
-      {/* Floating orbs */}
-      {[
-        { size: 300, top: '10%', left: '5%', delay: 0 },
-        { size: 200, top: '60%', right: '10%', delay: 2 },
-        { size: 150, bottom: '20%', left: '30%', delay: 4 },
-        { size: 250, top: '30%', right: '25%', delay: 1 },
-      ].map((orb, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            width: orb.size,
-            height: orb.size,
-            top: orb.top,
-            left: orb.left,
-            right: orb.right,
-            bottom: orb.bottom,
-            background: `radial-gradient(circle, rgba(0,191,255,0.08) 0%, transparent 70%)`,
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 6,
-            delay: orb.delay,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-      {/* Small sparkle dots */}
-      {Array.from({ length: 20 }).map((_, i) => (
-        <motion.div
-          key={`spark-${i}`}
-          className="absolute w-1 h-1 rounded-full bg-primary/60"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            opacity: [0, 1, 0],
-            scale: [0.5, 1.5, 0.5],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            delay: Math.random() * 3,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-    </div>
-  )
-}
 
 /* ─── Section Title ─────────────────────────────────────────── */
 
@@ -402,8 +333,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/hero-bg.png')" }}
         />
-        <div className="absolute inset-0 hero-overlay" />
-        <HeroParticles />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050510]/70 via-[#050510]/80 to-[#050510]" />
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
