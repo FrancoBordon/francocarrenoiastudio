@@ -605,13 +605,22 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  asChild
                   className="w-full border-primary/40 text-primary hover:bg-primary/10 font-semibold h-12"
+                  onClick={() => {
+                    const mailto = 'mailto:francocarreno.iastudio@gmail.com?subject=Consulta%20desde%20FC%20IA%20Studio'
+                    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=francocarreno.iastudio@gmail.com&su=Consulta%20desde%20FC%20IA%20Studio'
+                    try {
+                      window.open(mailto, '_self')
+                      setTimeout(() => {
+                        window.open(gmailUrl, '_blank')
+                      }, 500)
+                    } catch {
+                      window.open(gmailUrl, '_blank')
+                    }
+                  }}
                 >
-                  <a href="mailto:francocarreno.iastudio@gmail.com">
-                    <Mail className="mr-2 size-5" />
-                    Enviar Email
-                  </a>
+                  <Mail className="mr-2 size-5" />
+                  Enviar Email
                 </Button>
               </div>
             </FadeInWhenVisible>
