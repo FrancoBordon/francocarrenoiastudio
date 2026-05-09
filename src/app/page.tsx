@@ -337,19 +337,6 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="mb-8"
-          >
-            <img
-              src="/logo-fc.png"
-              alt="FC IA Studio"
-              className="h-10 md:h-12 w-auto mx-auto drop-shadow-[0_0_20px_rgba(0,191,255,0.3)]"
-            />
-          </motion.div>
 
           {/* Headline */}
           <motion.h1
