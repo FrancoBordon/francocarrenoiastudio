@@ -333,8 +333,6 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/hero-web.png')" }}
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050510]/60 via-[#050510]/50 to-[#050510]" />
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
