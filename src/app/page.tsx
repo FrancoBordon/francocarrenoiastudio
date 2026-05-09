@@ -409,7 +409,7 @@ export default function Home() {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
           {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="mb-8"
@@ -417,7 +417,7 @@ export default function Home() {
             <img
               src="/logo-fc.png"
               alt="FC IA Studio"
-              className="h-24 md:h-32 w-auto mx-auto animate-float drop-shadow-[0_0_30px_rgba(0,191,255,0.4)]"
+              className="h-10 md:h-12 w-auto mx-auto drop-shadow-[0_0_20px_rgba(0,191,255,0.3)]"
             />
           </motion.div>
 
@@ -747,13 +747,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Left: Logo + copyright */}
             <div className="flex flex-col items-center md:items-start">
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-2.5 mb-3">
                 <img
                   src="/logo-fc.png"
                   alt="FC IA Studio"
-                  className="h-8 w-auto"
+                  className="h-5 w-auto"
                 />
-                <span className="font-bold text-foreground">FC IA Studio</span>
+                <span className="font-bold text-foreground text-sm">FC IA Studio</span>
               </div>
               <p className="text-muted-foreground text-sm text-center md:text-left">
                 &copy; {new Date().getFullYear()} FC IA Studio. Todos los
