@@ -241,15 +241,10 @@ export default function Home() {
               e.preventDefault()
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-1.5 group"
           >
-            <img
-              src="/logo-fc.png"
-              alt="FC IA Studio"
-              className="h-9 md:h-11 w-auto transition-transform duration-300 group-hover:scale-110"
-            />
-            <span className="text-lg md:text-xl font-bold text-foreground tracking-tight hidden sm:block">
-              FC IA Studio
+            <span className="text-sm md:text-base font-extrabold text-foreground tracking-tight">
+              FC <span className="text-primary">IA</span> Studio
             </span>
           </a>
 
@@ -668,13 +663,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Left: Logo + copyright */}
             <div className="flex flex-col items-center md:items-start">
-              <div className="flex items-center gap-2.5 mb-3">
-                <img
-                  src="/logo-fc.png"
-                  alt="FC IA Studio"
-                  className="h-5 w-auto"
-                />
-                <span className="font-bold text-foreground text-sm">FC IA Studio</span>
+              <div className="flex items-center gap-1.5 mb-3">
+                <span className="font-extrabold text-foreground text-sm">
+                  FC <span className="text-primary">IA</span> Studio
+                </span>
               </div>
               <p className="text-muted-foreground text-sm text-center md:text-left">
                 &copy; {new Date().getFullYear()} FC IA Studio. Todos los
