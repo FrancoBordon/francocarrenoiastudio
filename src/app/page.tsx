@@ -328,12 +328,16 @@ export default function Home() {
         id="hero"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Background */}
+        {/* Background - Pure CSS gradient, no image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#050510] via-[#0a1628] to-[#050510]" />
+        {/* Subtle grid pattern */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/hero-bg.png')" }}
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(0,191,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,191,255,1) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050510]/70 via-[#050510]/80 to-[#050510]" />
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
