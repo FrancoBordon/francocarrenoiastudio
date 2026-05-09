@@ -602,16 +602,17 @@ export default function Home() {
                   francocarreno.iastudio@gmail.com
                 </p>
                 <p className="text-muted-foreground text-sm mb-6">Email</p>
-                <a href="mailto:francocarreno.iastudio@gmail.com" className="w-full">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full border-primary/40 text-primary hover:bg-primary/10 font-semibold h-12"
-                  >
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="w-full border-primary/40 text-primary hover:bg-primary/10 font-semibold h-12"
+                >
+                  <a href="mailto:francocarreno.iastudio@gmail.com">
                     <Mail className="mr-2 size-5" />
                     Enviar Email
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
             </FadeInWhenVisible>
           </div>
