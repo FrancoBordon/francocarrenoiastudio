@@ -500,8 +500,8 @@ export default function Home() {
       <section id="portfolio" className="py-20 md:py-28 relative">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            title="Nuestros Trabajos"
-            subtitle="Proyectos reales que generan resultados reales"
+            title="Soluciones para negocios reales"
+            subtitle="Sistemas, webs y automatizaciones creadas para ordenar, vender y hacer crecer negocios."
           />
 
           <div className="relative">
@@ -529,24 +529,24 @@ export default function Home() {
                     {visibleProjects.map((project, i) => (
                       <FadeInWhenVisible key={project.title} delay={i * 0.08}>
                         <div className="portfolio-card glass rounded-2xl overflow-hidden group h-full flex flex-col">
-                          <a
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="relative h-48 md:h-56 overflow-hidden block"
-                          >
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-500 flex items-center justify-center">
-                              <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 inline-flex items-center gap-2 bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold">
-                                <ExternalLink className="size-4" />
-                                Ver Proyecto
-                              </span>
-                            </div>
-                          </a>
+                                <a
+                                  href={project.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="relative h-48 md:h-56 overflow-hidden block"
+                                >
+                                  <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                  />
+                                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-500 flex items-center justify-center">
+                                    <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 inline-flex items-center gap-2 bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold">
+                                      <ExternalLink className="size-4" />
+                                      Ver solución
+                                    </span>
+                                  </div>
+                                </a>
 
                           <div className="p-5 md:p-6 flex-1 flex flex-col">
                             <div className="mb-3">
@@ -563,23 +563,44 @@ export default function Home() {
                               {project.description}
                             </p>
                             <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
-                              <a
-                                href={project.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/30 bg-background/60 px-4 py-2 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
-                              >
-                                Visitar sitio
-                                <ExternalLink className="size-3.5" />
-                              </a>
-                              <a
-                                href={PORTFOLIO_CONTACT_URL}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/90"
-                              >
-                                Lo quiero para mi
-                              </a>
+                              {project.title === 'Negocio360' ? (
+                                <>
+                                  <a
+                                    href="/soluciones/negocio360"
+                                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/30 bg-background/60 px-4 py-2 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
+                                  >
+                                    Ver detalle
+                                  </a>
+                                  <a
+                                    href={PORTFOLIO_CONTACT_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/90"
+                                  >
+                                    Lo quiero para mi
+                                  </a>
+                                </>
+                              ) : (
+                                <>
+                                  <a
+                                    href={project.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/30 bg-background/60 px-4 py-2 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
+                                  >
+                                    Visitar sitio
+                                    <ExternalLink className="size-3.5" />
+                                  </a>
+                                  <a
+                                    href={PORTFOLIO_CONTACT_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/90"
+                                  >
+                                    Lo quiero para mi
+                                  </a>
+                                </>
+                              )}
                             </div>
                           </div>
                         </div>
