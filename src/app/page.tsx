@@ -20,6 +20,8 @@ import {
   Menu,
   X,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   Sparkles,
   Zap,
   Shield,
@@ -82,25 +84,52 @@ const SERVICES = [
 
 const PORTFOLIO = [
   {
-    title: 'Sosa y Asociados',
+    title: 'Negocio360',
+    tagline: 'Toda tu gestión comercial en un solo lugar.',
+    url: 'https://www.negocio360.com.ar/',
+    image: '/images/portafolio/negocio360.jpg',
+    description:
+      'Sistema integral de gestión comercial para ventas, stock, caja, clientes, gastos y reportes financieros. Incluye lector de código con la cámara del celular y puede usarse desde cualquier celular con datos o internet.',
+  },
+  {
+    title: 'Buffet Casa de Dios',
+    tagline: 'Sistema digital para buffet con experiencia de pedido ágil.',
+    url: 'https://buffet-casa-de-dios.vercel.app/',
+    image: '/images/portafolio/buffet-casa-de-dios.jpg',
+    description:
+      'Carta digital, caja y POS, cocina, control de stock, múltiples idiomas y manejo de moneda en una experiencia clara para el cliente.',
+  },
+  {
+    title: 'Eliezer Parfum',
+    tagline: 'Tienda digital para perfumes y fragancias.',
+    url: 'https://www.eliezerparfum.com.ar/',
+    image: '/images/portafolio/eliezer-parfum.JPG',
+    description:
+      'Diseñada para mostrar productos de forma atractiva, profesional y clara, destacando promociones y facilitando la compra online.',
+  },
+  {
+    title: 'Estudio Jurídico / Inmobiliario Contable',
+    tagline: 'Presencia digital seria, clara y confiable.',
     url: 'https://estudio-juridico-sosay-asociados.vercel.app/',
     image: '/portfolio-sosa.jpg',
     description:
-      'Sitio web profesional diseñado para un estudio jurídico de referencia. Presenta todos los servicios legales de forma clara y accesible, permitiendo que los clientes puedan solicitar una consulta en cualquier momento desde cualquier dispositivo. Una experiencia digital que transmite seriedad, confianza y cercanía.',
+      'Sitio web profesional para un estudio jurídico de referencia, con una experiencia digital que transmite confianza y facilita el contacto.',
   },
   {
-    title: 'GianFranco Hair Art',
+    title: 'Gian Franco Hair Art Studio',
+    tagline: 'Portfolio premium para estilistas.',
     url: 'https://gianfrancoportafolio.vercel.app/',
     image: '/portfolio-gianfranco.jpg',
     description:
-      'Portfolio interactivo para un estilista profesional. Muestra quién es, su trabajo y todo lo que hace, con un diseño que invita a conectarse directamente con él y conseguir turnos de manera simple y rápida. Una presencia digital que refleja su estilo y profesionalismo.',
+      'Un portfolio interactivo que muestra el trabajo, la identidad y facilita la reserva de turnos de forma simple y directa.',
   },
   {
     title: 'Congreso Hechos 2',
+    tagline: 'Experiencia digital para eventos.',
     url: 'https://www.congresohechos2.com.ar/',
     image: '/portfolio-congreso.jpg',
     description:
-      'Web de evento religioso completamente responsive e interactiva. Incluye contador regresivo, implementación de video, botones interactivos, secciones de recomendaciones, galería de imágenes y toda la información necesaria. Un diseño que genera expectativa y facilita el acceso a cada detalle del congreso.',
+      'Web de evento responsive e interactiva con contenido clave, galería y recursos que generan expectativa desde el primer vistazo.',
   },
 ]
 
@@ -134,6 +163,8 @@ const STATS = [
 ]
 
 const WHATSAPP_URL = 'https://wa.me/5493804661246'
+const PORTFOLIO_CONTACT_URL =
+  'https://wa.me/543804661246?text=Hola%2C%20vi%20este%20trabajo%20en%20su%20portfolio%20y%20quiero%20algo%20parecido%20para%20mi%20empresa%2C%20negocio%20o%20proyecto.%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n.'
 const EMAIL_URL = 'mailto:francocarreno.iastudio@gmail.com'
 
 /* ─── Animated Section Wrapper ──────────────────────────────── */
@@ -204,14 +235,31 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [portfolioIndex, setPortfolioIndex] = useState(0)
+  const [visiblePortfolioCount, setVisiblePortfolioCount] = useState(3)
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
       setShowScrollTop(window.scrollY > 600)
     }
+
+    const updatePortfolioLayout = () => {
+      const nextCount = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3
+      setVisiblePortfolioCount(nextCount)
+      setPortfolioIndex((prev) =>
+        Math.min(prev, Math.max(PORTFOLIO.length - nextCount, 0))
+      )
+    }
+
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', updatePortfolioLayout)
+    updatePortfolioLayout()
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', updatePortfolioLayout)
+    }
   }, [])
 
   const scrollTo = (href: string) => {
@@ -219,6 +267,13 @@ export default function Home() {
     const el = document.querySelector(href)
     el?.scrollIntoView({ behavior: 'smooth' })
   }
+
+  const visibleProjects = PORTFOLIO.slice(
+    portfolioIndex,
+    portfolioIndex + visiblePortfolioCount
+  )
+  const canGoPrev = portfolioIndex > 0
+  const canGoNext = portfolioIndex + visiblePortfolioCount < PORTFOLIO.length
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden">
@@ -449,49 +504,122 @@ export default function Home() {
             subtitle="Proyectos reales que generan resultados reales"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {PORTFOLIO.map((project, i) => (
-              <FadeInWhenVisible key={project.title} delay={i * 0.15}>
-                <div className="portfolio-card glass rounded-2xl overflow-hidden group h-full flex flex-col">
-                  {/* Thumbnail area - clickable preview image */}
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative h-48 md:h-56 overflow-hidden block"
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-500 flex items-center justify-center">
-                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 inline-flex items-center gap-2 bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold">
-                        <ExternalLink className="size-4" />
-                        Ver Proyecto
-                      </span>
-                    </div>
-                  </a>
+          <div className="relative">
+            <div className="flex items-center gap-3 md:gap-4">
+              <button
+                type="button"
+                onClick={() => setPortfolioIndex((prev) => Math.max(prev - 1, 0))}
+                disabled={!canGoPrev}
+                className="hidden sm:flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-lg shadow-primary/10 transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="Proyecto anterior"
+              >
+                <ChevronLeft className="size-5" />
+              </button>
 
-                  {/* Description */}
-                  <div className="p-5 md:p-6 flex-1 flex flex-col">
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                      {project.description}
-                    </p>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:underline"
-                    >
-                      Visitar sitio
-                      <ExternalLink className="size-3.5" />
-                    </a>
-                  </div>
-                </div>
-              </FadeInWhenVisible>
-            ))}
+              <div className="flex-1 min-w-0">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${portfolioIndex}-${visiblePortfolioCount}`}
+                    initial={{ opacity: 0, x: 24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -24 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                  >
+                    {visibleProjects.map((project, i) => (
+                      <FadeInWhenVisible key={project.title} delay={i * 0.08}>
+                        <div className="portfolio-card glass rounded-2xl overflow-hidden group h-full flex flex-col">
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative h-48 md:h-56 overflow-hidden block"
+                          >
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-500 flex items-center justify-center">
+                              <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 inline-flex items-center gap-2 bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold">
+                                <ExternalLink className="size-4" />
+                                Ver Proyecto
+                              </span>
+                            </div>
+                          </a>
+
+                          <div className="p-5 md:p-6 flex-1 flex flex-col">
+                            <div className="mb-3">
+                              <h3 className="text-xl font-semibold text-foreground">
+                                {project.title}
+                              </h3>
+                              {project.tagline && (
+                                <p className="mt-1 text-sm font-medium text-primary/90">
+                                  {project.tagline}
+                                </p>
+                              )}
+                            </div>
+                            <p className="portfolio-description text-sm leading-relaxed text-muted-foreground flex-1">
+                              {project.description}
+                            </p>
+                            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
+                              <a
+                                href={project.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/30 bg-background/60 px-4 py-2 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
+                              >
+                                Visitar sitio
+                                <ExternalLink className="size-3.5" />
+                              </a>
+                              <a
+                                href={PORTFOLIO_CONTACT_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/90"
+                              >
+                                Lo quiero para mi
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </FadeInWhenVisible>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setPortfolioIndex((prev) => prev + 1)}
+                disabled={!canGoNext}
+                className="hidden sm:flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-lg shadow-primary/10 transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="Siguiente proyecto"
+              >
+                <ChevronRight className="size-5" />
+              </button>
+            </div>
+
+            <div className="mt-6 flex items-center justify-center gap-2 sm:hidden">
+              <button
+                type="button"
+                onClick={() => setPortfolioIndex((prev) => Math.max(prev - 1, 0))}
+                disabled={!canGoPrev}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="Proyecto anterior"
+              >
+                <ChevronLeft className="size-5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setPortfolioIndex((prev) => prev + 1)}
+                disabled={!canGoNext}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="Siguiente proyecto"
+              >
+                <ChevronRight className="size-5" />
+              </button>
+            </div>
           </div>
         </div>
       </section>

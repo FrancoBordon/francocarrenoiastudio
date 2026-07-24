@@ -1,0 +1,20 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="36" fill="#07111F"/>
+  <rect x="44" y="44" width="1112" height="712" rx="28" fill="#0D1830" stroke="#1C95FF" stroke-opacity="0.35"/>
+  <rect x="92" y="118" width="324" height="182" rx="20" fill="#11243F"/>
+  <rect x="448" y="118" width="660" height="182" rx="20" fill="#0B1729" stroke="#00C2FF" stroke-opacity="0.25"/>
+  <rect x="92" y="340" width="1016" height="320" rx="24" fill="#091425"/>
+  <rect x="128" y="376" width="176" height="112" rx="16" fill="#00BFFF" fill-opacity="0.16"/>
+  <rect x="332" y="376" width="176" height="112" rx="16" fill="#00BFFF" fill-opacity="0.12"/>
+  <rect x="536" y="376" width="176" height="112" rx="16" fill="#00BFFF" fill-opacity="0.12"/>
+  <rect x="740" y="376" width="176" height="112" rx="16" fill="#00BFFF" fill-opacity="0.12"/>
+  <rect x="944" y="376" width="112" height="112" rx="16" fill="#00BFFF" fill-opacity="0.16"/>
+  <rect x="128" y="520" width="420" height="16" rx="8" fill="#00BFFF" fill-opacity="0.36"/>
+  <rect x="128" y="552" width="280" height="16" rx="8" fill="#00BFFF" fill-opacity="0.24"/>
+  <rect x="128" y="584" width="308" height="16" rx="8" fill="#00BFFF" fill-opacity="0.2"/>
+  <path d="M529 176H874" stroke="#00BFFF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M529 214H806" stroke="#5CE1FF" stroke-width="10" stroke-linecap="round" stroke-opacity="0.7"/>
+  <circle cx="190" cy="180" r="48" fill="#00BFFF" fill-opacity="0.18"/>
+  <path d="M190 142C202.15 142 212 151.85 212 164C212 176.15 202.15 186 190 186C177.85 186 168 176.15 168 164C168 151.85 177.85 142 190 142Z" fill="#00C2FF"/>
+  <text x="468" y="694" fill="#E8F7FF" font-family="Arial, sans-serif" font-size="36" font-weight="700">Negocio360</text>
+</svg>
