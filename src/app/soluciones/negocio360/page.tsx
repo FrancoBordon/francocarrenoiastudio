@@ -1,4 +1,6 @@
 import React from 'react'
+import fs from 'fs'
+import path from 'path'
 import {
   ExternalLink,
   Smartphone,
@@ -75,20 +77,16 @@ const tutorialList = [
   { title: 'Cómo controlar stock', youtubeUrl: '' },
 ]
 
-function Img({ src, alt, fallback, className }: { src: string; alt: string; fallback: string; className?: string }) {
-  // Use onError to swap to fallback if image missing
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      onError={(e) => {
-        const target = e.currentTarget as HTMLImageElement
-        if (target.src !== fallback) target.src = fallback
-      }}
-    />
-  )
+// Resolve public image path on server: return `src` if file exists under /public, otherwise return `fallback`.
+function resolvePublicImage(src: string, fallback: string) {
+  try {
+    const rel = src.startsWith('/') ? src.slice(1) : src
+    const full = path.join(process.cwd(), 'public', rel)
+    if (fs.existsSync(full)) return src
+  } catch (e) {
+    // ignore errors and fall back
+  }
+  return fallback
 }
 
 export default function Negocio360Page() {
@@ -101,7 +99,11 @@ export default function Negocio360Page() {
   const thumbPos = `${imgBase}/negocio360-pos.jpg`
   const thumbMobile = `${imgBase}/negocio360-celular.jpg`
 
-  const showIframe = NEGOCIO360_YOUTUBE_ID && NEGOCIO360_YOUTUBE_ID !== 'PEGAR_ID_DEL_VIDEO'
+  const hasVideo = NEGOCIO360_YOUTUBE_ID && NEGOCIO360_YOUTUBE_ID !== 'PEGAR_ID_DEL_VIDEO'
+
+  const thumbDashboardSrc = resolvePublicImage(thumbDashboard, fallbackImage)
+  const thumbPosSrc = resolvePublicImage(thumbPos, fallbackImage)
+  const thumbMobileSrc = resolvePublicImage(thumbMobile, fallbackImage)
 
   return (
     <div className={`min-h-screen text-foreground ${heroBg}`}>
@@ -160,7 +162,7 @@ export default function Negocio360Page() {
             <div className="mb-3 text-sm text-muted-foreground">Mirá cómo funciona en menos de 2 minutos</div>
             <div className={`rounded-2xl overflow-hidden ${primaryBorder} shadow-[0_20px_60px_rgba(0,191,255,0.06)] bg-[#020614]`}> 
               <div className="w-full" style={{ aspectRatio: '16/9' }}>
-                {showIframe ? (
+                {hasVideo ? (
                   <iframe
                     src={NEGOCIO360_YOUTUBE_URL}
                     title="Negocio360 Demo"
@@ -171,12 +173,7 @@ export default function Negocio360Page() {
                     style={{ minHeight: 220 }}
                   />
                 ) : (
-                  <Img
-                    src={thumbDashboard}
-                    alt="Negocio360 demo"
-                    fallback={fallbackImage}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={thumbDashboardSrc} alt="Negocio360 demo" className="w-full h-full object-cover" />
                 )}
               </div>
             </div>
@@ -190,7 +187,7 @@ export default function Negocio360Page() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
-              <Img src={thumbDashboard} alt="Dashboard" fallback={fallbackImage} className="w-full h-56 object-cover rounded-xl" />
+              <img src={thumbDashboardSrc} alt="Dashboard" className="w-full h-56 object-cover rounded-xl" />
               <div className="p-4 bg-[#030617]">
                 <h4 className="font-semibold mb-1">Dashboard principal</h4>
                 <p className="text-sm text-muted-foreground">Resumen visual de ventas, caja y alertas del día para decisiones rápidas.</p>
@@ -198,7 +195,7 @@ export default function Negocio360Page() {
             </div>
 
             <div className="rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
-              <Img src={thumbPos} alt="POS" fallback={fallbackImage} className="w-full h-56 object-cover rounded-xl" />
+              <img src={thumbPosSrc} alt="POS" className="w-full h-56 object-cover rounded-xl" />
               <div className="p-4 bg-[#030617]">
                 <h4 className="font-semibold mb-1">Ventas / POS</h4>
                 <p className="text-sm text-muted-foreground">Pantalla de venta rápida, cobros y comprobantes en segundos.</p>
@@ -206,7 +203,7 @@ export default function Negocio360Page() {
             </div>
 
             <div className="rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
-              <Img src={thumbMobile} alt="Desde celular" fallback={fallbackImage} className="w-full h-56 object-cover rounded-xl" />
+              <img src={thumbMobileSrc} alt="Desde celular" className="w-full h-56 object-cover rounded-xl" />
               <div className="p-4 bg-[#030617]">
                 <h4 className="font-semibold mb-1">Uso desde celular</h4>
                 <p className="text-sm text-muted-foreground">Gestioná tu negocio desde cualquier lugar con la app web responsiva.</p>
@@ -281,7 +278,7 @@ export default function Negocio360Page() {
           </div>
 
           <div className="rounded-xl overflow-hidden w-full max-w-sm border border-cyan-500/10 shadow-lg">
-            <Img src={thumbMobile} alt="Negocio360 celular" fallback={fallbackImage} className="w-full h-56 object-cover rounded-xl" />
+            <img src={thumbMobileSrc} alt="Negocio360 celular" className="w-full h-56 object-cover rounded-xl" />
           </div>
         </section>
 
