@@ -12,18 +12,22 @@ import {
   Users,
   FileText,
   CheckCircle,
+  Sparkles,
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Negocio360 | Sistema de gestión comercial para negocios',
+  title: 'Negocio360 | Sistema de gestión comercial con Marketing IA',
   description:
-    'Sistema de gestión comercial para ventas, stock, caja, clientes, gastos y reportes financieros. Usalo desde el celular, con lector de código mediante cámara.',
+    'Sistema para ventas, stock, caja, clientes, gastos, reportes financieros y Marketing IA. Usalo desde el celular con lector de código mediante cámara.',
 }
 
 const NEGOCIO360_YOUTUBE_ID = 'PEGAR_ID_DEL_VIDEO'
 const NEGOCIO360_YOUTUBE_URL = `https://www.youtube.com/embed/${NEGOCIO360_YOUTUBE_ID}`
 const WHATSAPP_NEGOCIO360 =
   'https://wa.me/543804661246?text=Hola%2C%20vi%20Negocio360%20y%20quiero%20saber%20c%C3%B3mo%20implementarlo%20en%20mi%20negocio.'
+
+const WHATSAPP_MARKETING =
+  'https://wa.me/543804661246?text=Hola%2C%20vi%20la%20funci%C3%B3n%20Marketing%20IA%20de%20Negocio360%20y%20quiero%20saber%20c%C3%B3mo%20puede%20ayudarme%20a%20vender%20m%C3%A1s.'
 
 const featureBlocks = [
   {
@@ -66,6 +70,11 @@ const featureBlocks = [
     icon: Smartphone,
     text: 'Accedé desde cualquier celular, tablet o computadora con conexión.',
   },
+  {
+    title: 'Marketing IA',
+    icon: Sparkles,
+    text: 'Generá ideas diarias para redes sociales: posts, reels, historias, hashtags y prompts para diseños.',
+  },
 ]
 
 const tutorialList = [
@@ -75,6 +84,22 @@ const tutorialList = [
   { title: 'Cómo cerrar caja', youtubeUrl: '' },
   { title: 'Cómo ver reportes', youtubeUrl: '' },
   { title: 'Cómo controlar stock', youtubeUrl: '' },
+]
+
+const modulesList = [
+  { title: 'Dashboard en vivo', text: 'Resumen visual de ventas, stock, caja y movimientos importantes.' },
+  { title: 'Productos', text: 'Carga y gestión de productos con precio, stock, categoría e imagen.' },
+  { title: 'Stock', text: 'Control de disponibilidad, reposición y movimientos de inventario.' },
+  { title: 'Ventas / POS', text: 'Pantalla de venta rápida para atender mejor y registrar operaciones.' },
+  { title: 'Caja', text: 'Ingresos, egresos, apertura, cierre y control diario.' },
+  { title: 'Clientes', text: 'Registro de clientes para seguimiento y atención personalizada.' },
+  { title: 'Gastos', text: 'Organización de gastos para conocer la rentabilidad real.' },
+  { title: 'Reportes', text: 'Información clara para entender cómo está funcionando el negocio.' },
+  { title: 'Exportación PDF', text: 'Generá reportes listos para guardar, imprimir o compartir.' },
+  { title: 'Administración desde celular', text: 'Usá el sistema desde cualquier dispositivo con conexión a internet.' },
+  { title: 'Lector de código con cámara', text: 'Escaneá productos con la cámara del celular sin hardware adicional.' },
+  { title: 'Configuración del negocio', text: 'Adaptá datos, usuarios y opciones básicas del comercio.' },
+  { title: 'Marketing IA', text: 'Generador de ideas para publicaciones, reels, historias, flyers, hashtags y contenido para redes sociales.' },
 ]
 
 // Resolve public image path on server: return `src` if file exists under /public, otherwise return `fallback`.
@@ -122,15 +147,21 @@ export default function Negocio360Page() {
             <h2 className="text-xl text-primary font-semibold mb-4">Toda tu gestión comercial en un solo lugar.</h2>
 
             <p className="text-muted-foreground max-w-2xl leading-relaxed mb-6">
-              Controlá ventas, stock, caja, clientes, gastos y reportes financieros desde cualquier celular, tablet o computadora. Simple, rápido y seguro.
+              Controlá ventas, stock, caja, clientes, gastos, reportes financieros y herramientas de marketing con inteligencia artificial desde cualquier celular, tablet o computadora. Simple, rápido y seguro.
             </p>
 
+            <p className="text-muted-foreground max-w-2xl leading-relaxed mb-6">
+              Negocio360 te ayuda a ordenar tus procesos, vender mejor y tomar decisiones con información clara. Además, incluye Marketing IA para generar ideas de contenido y publicaciones para tus redes sociales.
+            </p>
             <div className="flex flex-wrap items-center gap-3 mb-6">
               <span className="inline-flex items-center gap-2 bg-[#06202a] border border-cyan-500/10 px-3 py-1 rounded-full text-sm text-primary">
                 <CheckCircle className="size-4 text-cyan-300" /> Funciona desde celular
               </span>
               <span className="inline-flex items-center gap-2 bg-[#06202a] border border-cyan-500/10 px-3 py-1 rounded-full text-sm text-primary">
                 <Camera className="size-4 text-cyan-300" /> Lector con cámara
+              </span>
+              <span className="inline-flex items-center gap-2 bg-[#06202a] border border-cyan-500/10 px-3 py-1 rounded-full text-sm text-primary">
+                <Sparkles className="size-4 text-cyan-300" /> Marketing IA
               </span>
               <span className="inline-flex items-center gap-2 bg-[#06202a] border border-cyan-500/10 px-3 py-1 rounded-full text-sm text-primary">
                 <BarChart3 className="size-4 text-cyan-300" /> Reportes claros
@@ -253,6 +284,57 @@ export default function Negocio360Page() {
           </div>
         </section>
 
+        {/* Marketing IA */}
+        <section className="mt-12 bg-gradient-to-b from-[#02101a] to-[#020814] rounded-2xl p-6 md:p-10" aria-labelledby="marketing-ia-title">
+          <div className="max-w-7xl mx-auto">
+            <h3 id="marketing-ia-title" className="text-2xl font-bold mb-2 text-white">Marketing IA para vender más</h3>
+            <p className="text-muted-foreground mb-4 max-w-2xl">Generá ideas diarias para tus redes sociales sin quedarte en blanco.</p>
+            <p className="text-primary font-semibold mb-4">Con solo cargar información básica sobre tus productos, tu público y la zona donde vendés, Negocio360 puede ayudarte a generar ideas de contenido para Instagram, Facebook, TikTok y WhatsApp.</p>
+            <div className="glass rounded-xl p-4 mb-4">
+              <strong>La sección Marketing IA genera hasta 30 ideas diarias</strong> para publicar, promocionar productos y mantener activa la comunicación de tu negocio.
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <div className="p-4 bg-[#02101a] rounded-xl border border-cyan-500/8">
+                <h4 className="font-semibold mb-1">Ideas para publicaciones</h4>
+                <p className="text-sm text-muted-foreground">Generá ideas listas para adaptar y publicar en Instagram, Facebook, TikTok o WhatsApp.</p>
+              </div>
+              <div className="p-4 bg-[#02101a] rounded-xl border border-cyan-500/8">
+                <h4 className="font-semibold mb-1">Guiones para reels</h4>
+                <p className="text-sm text-muted-foreground">Recibí estructuras de video, ideas de escenas y textos sugeridos para crear contenido corto.</p>
+              </div>
+              <div className="p-4 bg-[#02101a] rounded-xl border border-cyan-500/8">
+                <h4 className="font-semibold mb-1">Ideas para historias</h4>
+                <p className="text-sm text-muted-foreground">Obtené propuestas para historias con encuestas, preguntas, promociones y llamados a la acción.</p>
+              </div>
+              <div className="p-4 bg-[#02101a] rounded-xl border border-cyan-500/8">
+                <h4 className="font-semibold mb-1">Instrucciones de producción</h4>
+                <p className="text-sm text-muted-foreground">Cada idea incluye pasos simples para grabar, mostrar el producto y comunicar mejor.</p>
+              </div>
+              <div className="p-4 bg-[#02101a] rounded-xl border border-cyan-500/8">
+                <h4 className="font-semibold mb-1">Prompts para flyers o imágenes</h4>
+                <p className="text-sm text-muted-foreground">Generá prompts para crear piezas visuales con IA.</p>
+              </div>
+              <div className="p-4 bg-[#02101a] rounded-xl border border-cyan-500/8">
+                <h4 className="font-semibold mb-1">Hashtags y textos sugeridos</h4>
+                <p className="text-sm text-muted-foreground">Recibí hashtags, copys y frases pensadas para atraer más consultas y ventas.</p>
+              </div>
+              <div className="p-4 bg-[#02101a] rounded-xl border border-cyan-500/8">
+                <h4 className="font-semibold mb-1">Sugerencias de diseño</h4>
+                <p className="text-sm text-muted-foreground">Obtené recomendaciones visuales sobre estilo, colores y composición.</p>
+              </div>
+              <div className="p-4 bg-[#02101a] rounded-xl border border-cyan-500/8">
+                <h4 className="font-semibold mb-1">Contenido según tu negocio</h4>
+                <p className="text-sm text-muted-foreground">Las ideas se adaptan según el tipo de producto, público objetivo y ubicación.</p>
+              </div>
+            </div>
+
+            <div className="flex">
+              <a href={WHATSAPP_MARKETING} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-cyan-500 px-4 py-2 rounded-full font-semibold text-black">Quiero vender más con IA</a>
+            </div>
+          </div>
+        </section>
+
         {/* Ideal para */}
         <section className="mt-16">
           <h3 className="text-2xl font-bold mb-3">Ideal para comercios y emprendimientos</h3>
@@ -313,16 +395,79 @@ export default function Negocio360Page() {
         <section className="mt-16">
           <h3 className="text-2xl font-bold mb-4">Módulos incluidos</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featureBlocks.map((m) => (
+            {modulesList.map((m) => (
               <div key={m.title} className="p-5 bg-[#02101a] rounded-xl border border-cyan-500/8">
                 <div className="flex items-center gap-3 mb-2">
-                  <m.icon className="size-5 text-cyan-300" />
+                  <div className="size-5 text-cyan-300">●</div>
                   <h4 className="font-semibold">{m.title}</h4>
                 </div>
                 <p className="text-sm text-muted-foreground">{m.text}</p>
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Planes */}
+        <section id="planes" className="mt-16">
+          <h3 className="text-2xl font-bold mb-4">Planes pensados para cada etapa de tu negocio</h3>
+          <p className="text-muted-foreground mb-6 max-w-2xl">Elegí el plan según la cantidad de productos, usuarios y herramientas que necesitás.</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            {/* Plan Básico */}
+            <div className="glass rounded-2xl p-6 text-center">
+              <h4 className="text-xl font-bold mb-2">PLAN BÁSICO</h4>
+              <div className="text-2xl font-extrabold text-primary mb-1">$35.000 <span className="text-sm text-muted-foreground">/ mes</span></div>
+              <div className="text-sm text-muted-foreground line-through mb-3">$49.000</div>
+              <ul className="text-sm text-muted-foreground mb-4 space-y-1">
+                <li>- 50 productos</li>
+                <li>- 1 usuario</li>
+                <li>- POS y ventas</li>
+                <li>- Caja básica</li>
+                <li>- Comprobantes internos</li>
+              </ul>
+              <a href="https://wa.me/543804661246?text=Hola%2C%20quiero%20consultar%20por%20el%20Plan%20B%C3%A1sico%20de%20Negocio360." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-primary text-black font-semibold px-4 py-2 rounded-full">Consultar Plan Básico</a>
+            </div>
+
+            {/* Plan Premium */}
+            <div className="glass rounded-2xl p-6 text-center border-2 border-cyan-500">
+              <div className="text-sm text-primary font-semibold mb-2">Más popular</div>
+              <h4 className="text-xl font-bold mb-2">PLAN PREMIUM</h4>
+              <div className="text-2xl font-extrabold text-primary mb-1">$55.000 <span className="text-sm text-muted-foreground">/ mes</span></div>
+              <div className="text-sm text-muted-foreground line-through mb-3">$85.000</div>
+              <ul className="text-sm text-muted-foreground mb-4 space-y-1">
+                <li>- 1500 productos</li>
+                <li>- 4 usuarios</li>
+                <li>- POS y ventas</li>
+                <li>- Caja</li>
+                <li>- Reportes avanzados</li>
+                <li>- Exportar PDF/CSV</li>
+                <li>- Facturación electrónica ARCA/AFIP</li>
+                <li>- Marketing IA</li>
+              </ul>
+              <a href="https://wa.me/543804661246?text=Hola%2C%20quiero%20consultar%20por%20el%20Plan%20Premium%20de%20Negocio360." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-cyan-500 text-black font-semibold px-4 py-2 rounded-full">Consultar Plan Premium</a>
+            </div>
+
+            {/* Plan VIP */}
+            <div className="glass rounded-2xl p-6 text-center">
+              <h4 className="text-xl font-bold mb-2">PLAN VIP</h4>
+              <div className="text-2xl font-extrabold text-primary mb-1">$95.000 <span className="text-sm text-muted-foreground">/ mes</span></div>
+              <div className="text-sm text-muted-foreground line-through mb-3">$160.000</div>
+              <ul className="text-sm text-muted-foreground mb-4 space-y-1">
+                <li>- 5000 productos</li>
+                <li>- 50 usuarios</li>
+                <li>- POS y ventas</li>
+                <li>- Caja</li>
+                <li>- Reportes avanzados</li>
+                <li>- Exportar PDF/CSV</li>
+                <li>- Facturación electrónica ARCA/AFIP</li>
+                <li>- Marketing con IA</li>
+                <li>- CRM avanzado con WhatsApp</li>
+              </ul>
+              <a href="https://wa.me/543804661246?text=Hola%2C%20quiero%20consultar%20por%20el%20Plan%20VIP%20de%20Negocio360." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-primary text-black font-semibold px-4 py-2 rounded-full">Consultar Plan VIP</a>
+            </div>
+          </div>
+
+          <p className="text-sm text-muted-foreground">Facturación ARCA oficial: próximamente · Módulo adicional</p>
         </section>
 
         {/* Tutoriales */}
