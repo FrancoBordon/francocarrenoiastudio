@@ -24,10 +24,10 @@ export const metadata = {
 const NEGOCIO360_YOUTUBE_ID = 'PEGAR_ID_DEL_VIDEO'
 const NEGOCIO360_YOUTUBE_URL = `https://www.youtube.com/embed/${NEGOCIO360_YOUTUBE_ID}`
 const WHATSAPP_NEGOCIO360 =
-  'https://wa.me/543804661246?text=Hola%2C%20vi%20Negocio360%20y%20quiero%20saber%20c%C3%B3mo%20implementarlo%20en%20mi%20negocio.'
+  'https://wa.me/5493804661245?text=Hola%2C%20vi%20Negocio360%20y%20quiero%20saber%20c%C3%B3mo%20implementarlo%20en%20mi%20negocio.'
 
 const WHATSAPP_MARKETING =
-  'https://wa.me/543804661246?text=Hola%2C%20vi%20la%20funci%C3%B3n%20Marketing%20IA%20de%20Negocio360%20y%20quiero%20saber%20c%C3%B3mo%20puede%20ayudarme%20a%20vender%20m%C3%A1s.'
+  'https://wa.me/5493804661245?text=Hola%2C%20vi%20la%20funci%C3%B3n%20Marketing%20IA%20de%20Negocio360%20y%20quiero%20saber%20c%C3%B3mo%20puede%20ayudarme%20a%20vender%20m%C3%A1s.'
 
 const featureBlocks = [
   {
@@ -413,60 +413,97 @@ export default function Negocio360Page() {
           <p className="text-muted-foreground mb-6 max-w-2xl">Elegí el plan según la cantidad de productos, usuarios y herramientas que necesitás.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {/* Plan Básico */}
-            <div className="glass rounded-2xl p-6 text-center">
-              <h4 className="text-xl font-bold mb-2">PLAN BÁSICO</h4>
-              <div className="text-2xl font-extrabold text-primary mb-1">$35.000 <span className="text-sm text-muted-foreground">/ mes</span></div>
-              <div className="text-sm text-muted-foreground line-through mb-3">$49.000</div>
-              <ul className="text-sm text-muted-foreground mb-4 space-y-1">
-                <li>- 50 productos</li>
-                <li>- 1 usuario</li>
-                <li>- POS y ventas</li>
-                <li>- Caja básica</li>
-                <li>- Comprobantes internos</li>
-              </ul>
-              <a href="https://wa.me/543804661246?text=Hola%2C%20quiero%20consultar%20por%20el%20Plan%20B%C3%A1sico%20de%20Negocio360." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-primary text-black font-semibold px-4 py-2 rounded-full">Consultar Plan Básico</a>
-            </div>
+          
 
             {/* Plan Premium */}
-            <div className="glass rounded-2xl p-6 text-center border-2 border-cyan-500">
-              <div className="text-sm text-primary font-semibold mb-2">Más popular</div>
+            <div className="glass rounded-2xl p-6 text-center border-2 border-cyan-500 relative">
+              <div className="inline-flex items-center justify-center px-4 py-1 rounded-full bg-cyan-500 text-black text-xs font-bold mb-4">
+                Más popular
+              </div>
+
               <h4 className="text-xl font-bold mb-2">PLAN PREMIUM</h4>
-              <div className="text-2xl font-extrabold text-primary mb-1">$55.000 <span className="text-sm text-muted-foreground">/ mes</span></div>
-              <div className="text-sm text-muted-foreground line-through mb-3">$85.000</div>
-              <ul className="text-sm text-muted-foreground mb-4 space-y-1">
-                <li>- 1500 productos</li>
-                <li>- 4 usuarios</li>
-                <li>- POS y ventas</li>
-                <li>- Caja</li>
-                <li>- Reportes avanzados</li>
-                <li>- Exportar PDF/CSV</li>
-                <li>- Facturación electrónica ARCA/AFIP</li>
-                <li>- Marketing IA</li>
+
+              <div className="text-sm text-muted-foreground line-through mb-1">
+                $55.000
+              </div>
+
+              <div className="text-3xl font-extrabold text-primary mb-1">
+                $25.000{" "}
+                <span className="text-sm text-muted-foreground font-medium">
+                  / mes
+                </span>
+              </div>
+
+              <div className="w-full bg-cyan-500/20 text-cyan-400 text-xs font-semibold rounded-full py-1 mb-5">
+                Precio lanzamiento
+              </div>
+
+              <ul className="text-sm text-muted-foreground mb-6 space-y-2 text-left max-w-xs mx-auto">
+                <li>✓ 1500 productos</li>
+                <li>✓ 4 usuarios</li>
+                <li>✓ POS y ventas</li>
+                <li>✓ Caja</li>
+                <li>✓ Reportes avanzados</li>
+                <li>✓ Exportar PDF/CSV</li>
+                <li>✓ Facturación electrónica ARCA/AFIP</li>
+                <li>✓ Marketing IA</li>
               </ul>
-              <a href="https://wa.me/543804661246?text=Hola%2C%20quiero%20consultar%20por%20el%20Plan%20Premium%20de%20Negocio360." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-cyan-500 text-black font-semibold px-4 py-2 rounded-full">Consultar Plan Premium</a>
+
+              <a
+                href="https://wa.me/5493804661245?text=Hola%2C%20quiero%20consultar%20por%20el%20Plan%20Premium%20de%20Negocio360."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-4 py-3 rounded-full transition"
+              >
+                Consultar Plan Premium
+              </a>
             </div>
 
             {/* Plan VIP */}
-            <div className="glass rounded-2xl p-6 text-center">
+            <div className="glass rounded-2xl p-6 text-center border border-cyan-500/20">
+              <div className="inline-flex items-center justify-center px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-4">
+                Más completo
+              </div>
+
               <h4 className="text-xl font-bold mb-2">PLAN VIP</h4>
-              <div className="text-2xl font-extrabold text-primary mb-1">$95.000 <span className="text-sm text-muted-foreground">/ mes</span></div>
-              <div className="text-sm text-muted-foreground line-through mb-3">$160.000</div>
-              <ul className="text-sm text-muted-foreground mb-4 space-y-1">
-                <li>- 5000 productos</li>
-                <li>- 50 usuarios</li>
-                <li>- POS y ventas</li>
-                <li>- Caja</li>
-                <li>- Reportes avanzados</li>
-                <li>- Exportar PDF/CSV</li>
-                <li>- Facturación electrónica ARCA/AFIP</li>
-                <li>- Marketing con IA</li>
-                <li>- CRM avanzado con WhatsApp</li>
+
+              <div className="text-sm text-muted-foreground line-through mb-1">
+                $95.000
+              </div>
+
+              <div className="text-3xl font-extrabold text-primary mb-1">
+                $40.000{" "}
+                <span className="text-sm text-muted-foreground font-medium">
+                  / mes
+                </span>
+              </div>
+
+              <div className="w-full bg-cyan-500/20 text-cyan-400 text-xs font-semibold rounded-full py-1 mb-5">
+                Precio lanzamiento
+              </div>
+
+              <ul className="text-sm text-muted-foreground mb-6 space-y-2 text-left max-w-xs mx-auto">
+                <li>✓ 5000 productos</li>
+                <li>✓ 50 usuarios</li>
+                <li>✓ POS y ventas</li>
+                <li>✓ Caja</li>
+                <li>✓ Reportes avanzados</li>
+                <li>✓ Exportar PDF/CSV</li>
+                <li>✓ Facturación electrónica ARCA/AFIP</li>
+                <li>✓ Marketing con IA</li>
+                <li>✓ CRM avanzado con WhatsApp</li>
               </ul>
-              <a href="https://wa.me/543804661246?text=Hola%2C%20quiero%20consultar%20por%20el%20Plan%20VIP%20de%20Negocio360." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-primary text-black font-semibold px-4 py-2 rounded-full">Consultar Plan VIP</a>
+
+              <a
+                href="https://wa.me/5493804661245?text=Hola%2C%20quiero%20consultar%20por%20el%20Plan%20VIP%20de%20Negocio360."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full bg-primary hover:bg-cyan-400 text-black font-semibold px-4 py-3 rounded-full transition"
+              >
+                Consultar Plan VIP
+              </a>
             </div>
           </div>
-
           <p className="text-sm text-muted-foreground">Facturación ARCA oficial: próximamente · Módulo adicional</p>
         </section>
 

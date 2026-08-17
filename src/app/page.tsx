@@ -162,9 +162,9 @@ const STATS = [
   { value: '100%', label: 'Clientes Satisfechos' },
 ]
 
-const WHATSAPP_URL = 'https://wa.me/5493804661246'
+const WHATSAPP_URL = 'https://wa.me/5493804661245'
 const PORTFOLIO_CONTACT_URL =
-  'https://wa.me/543804661246?text=Hola%2C%20vi%20este%20trabajo%20en%20su%20portfolio%20y%20quiero%20algo%20parecido%20para%20mi%20empresa%2C%20negocio%20o%20proyecto.%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n.'
+  'https://wa.me/5493804661245?text=Hola%2C%20vi%20este%20trabajo%20en%20su%20portfolio%20y%20quiero%20algo%20parecido%20para%20mi%20empresa%2C%20negocio%20o%20proyecto.%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n.'
 const EMAIL_URL = 'mailto:francocarreno.iastudio@gmail.com'
 
 /* ─── Animated Section Wrapper ──────────────────────────────── */
@@ -296,12 +296,12 @@ export default function Home() {
             className="flex items-center gap-2 group"
           >
             <img
-              src="/logo-fc.png"
-              alt="FC"
+              src="/logo-360-ia-studio.png"
+              alt="360 IA Studio"
               className="h-6 w-6 md:h-7 md:w-7 rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <span className="text-sm md:text-base font-extrabold text-foreground tracking-tight">
-              FC <span className="text-primary">IA</span> Studio
+              360 <span className="text-primary">IA</span> Studio
             </span>
           </a>
 
@@ -716,7 +716,7 @@ export default function Home() {
                   Consulta directa
                 </p>
                 <p className="text-foreground text-lg font-bold mb-1">
-                  +54 9 380 466-1246
+                  +54 9 380 466-1245
                 </p>
                 <p className="text-muted-foreground text-sm mb-6">
                   WhatsApp
@@ -756,8 +756,8 @@ export default function Home() {
                   variant="outline"
                   className="w-full border-primary/40 text-primary hover:bg-primary/10 font-semibold h-12"
                   onClick={() => {
-                    const mailto = 'mailto:francocarreno.iastudio@gmail.com?subject=Consulta%20desde%20FC%20IA%20Studio'
-                    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=francocarreno.iastudio@gmail.com&su=Consulta%20desde%20FC%20IA%20Studio'
+                    const mailto = 'mailto:francocarreno.iastudio@gmail.com?subject=Consulta%20desde%20360%20IA%20Studio'
+                    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=francocarreno.iastudio@gmail.com&su=Consulta%20desde%20360%20IA%20Studio'
                     try {
                       window.open(mailto, '_self')
                       setTimeout(() => {
@@ -797,16 +797,16 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-start">
               <div className="flex items-center gap-2 mb-3">
                 <img
-                  src="/logo-fc.png"
-                  alt="FC"
+                  src="/logo-360-ia-studio.png"
+                  alt="360 IA Studio"
                   className="h-5 w-5 rounded-full object-cover"
                 />
                 <span className="font-extrabold text-foreground text-sm">
-                  FC <span className="text-primary">IA</span> Studio
+                  360 <span className="text-primary">IA</span> Studio
                 </span>
               </div>
               <p className="text-muted-foreground text-sm text-center md:text-left">
-                &copy; {new Date().getFullYear()} FC IA Studio. Todos los
+                &copy; {new Date().getFullYear()} 360 IA Studio. Todos los
                 derechos reservados.
               </p>
             </div>
@@ -841,7 +841,7 @@ export default function Home() {
           {/* Bottom line */}
           <div className="section-divider mt-8 mb-4" />
           <p className="text-center text-xs text-muted-foreground/60">
-            Diseñado con pasión por FC IA Studio
+            Diseñado con pasión por 360 IA Studio
           </p>
         </div>
       </footer>

@@ -1,13 +1,13 @@
 # Task 1 - Main Developer Agent
 
-## Task: Build FC IA Studio One-Page Website
+## Task: Build 360 IA Studio One-Page Website
 
 ### What was done:
 1. **Initialized** the fullstack development environment
 2. **Reviewed** existing project structure - found all shadcn/ui components, globals.css with pre-configured dark theme (navy/cyan), and brand assets in /public/
 3. **Created** complete `src/app/page.tsx` - a stunning, dark, futuristic one-page website with:
    - **Navigation**: Sticky glass/transparent header with logo, nav links (Servicios, Portfolio, Nosotros, Contacto), CTA "Presupuesto" button, mobile hamburger menu with AnimatePresence transitions
-   - **Hero Section**: Full viewport height with hero-bg.png background, CSS grid/circuit particle effects, floating orbs, sparkle dots, animated FC IA Studio logo with glow, headline with cyan accent, two CTA buttons (WhatsApp + Portfolio), animated scroll indicator
+   - **Hero Section**: Full viewport height with hero-bg.png background, CSS grid/circuit particle effects, floating orbs, sparkle dots, animated 360 IA Studio logo with glow, headline with cyan accent, two CTA buttons (WhatsApp + Portfolio), animated scroll indicator
    - **Services Section**: 7 service cards (Diseño Web, Automatización, Logos, WhatsApp Business, Google Business, Imágenes/Videos, Marketing Digital) in responsive grid (1→2→3→4 cols), glass effect, hover glow/lift animations
    - **Portfolio Section**: 3 project cards (Sosa y Asociados, GianFranco Hair Art, Congreso Hechos 2) with gradient thumbnails, hover overlay with "Ver Proyecto" button, descriptions, and external links
    - **Why Choose Us Section**: 4 pillars (Tecnología, Estrategia, Creatividad, Resultados) with animated icons, stats banner (+10 Negocios, +25 Proyectos, 100% Clientes) with gradient border

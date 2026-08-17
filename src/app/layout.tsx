@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FC IA Studio | Soluciones Digitales para Emprendedores",
+  title: "360 IA Studio | Soluciones Digitales para Emprendedores",
   description:
     "Creamos soluciones digitales para emprendedores, profesionales y negocios que quieren verse más profesionales, atraer más consultas y crecer online. Diseño web, automatización, marketing digital y más.",
   keywords: [
-    "FC IA Studio",
+    "360 IA Studio",
     "diseño web profesional",
     "automatización de procesos",
     "marketing digital",
@@ -27,26 +27,41 @@ export const metadata: Metadata = {
     "Google Business",
     "soluciones digitales",
     "emprendedores",
-    "Franco Carreño",
+    "negocios digitales",
+    "presencia online",
   ],
-  authors: [{ name: "Franco Carreño - FC IA Studio" }],
+  authors: [{ name: "360 IA Studio" }],
+  creator: "360 IA Studio",
+  publisher: "360 IA Studio",
+  metadataBase: new URL("https://www.360iastudio.com.ar"),
   icons: {
-    icon: "/logo-fc.png",
+    icon: "/logo-360-ia-studio.png",
+    shortcut: "/logo-360-ia-studio.png",
+    apple: "/logo-360-ia-studio.png",
   },
   openGraph: {
-    title: "FC IA Studio | Soluciones Digitales para Emprendedores",
+    title: "360 IA Studio | Soluciones Digitales para Emprendedores",
     description:
       "Creamos soluciones digitales para emprendedores, profesionales y negocios que quieren verse más profesionales, atraer más consultas y crecer online.",
-    url: "https://fc-iastudio.com",
-    siteName: "FC IA Studio",
+    url: "https://www.360iastudio.com.ar",
+    siteName: "360 IA Studio",
     type: "website",
-    images: [{ url: "/fc-brand.png", width: 1200, height: 630 }],
+    locale: "es_AR",
+    images: [
+      {
+        url: "/logo-360-ia-studio.png",
+        width: 1200,
+        height: 630,
+        alt: "360 IA Studio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FC IA Studio | Soluciones Digitales",
+    title: "360 IA Studio | Soluciones Digitales",
     description:
       "Creamos soluciones digitales para emprendedores, profesionales y negocios que quieren crecer online.",
+    images: ["/logo-360-ia-studio.png"],
   },
 };
 
