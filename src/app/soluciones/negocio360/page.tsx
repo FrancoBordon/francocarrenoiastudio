@@ -121,14 +121,16 @@ export default function Negocio360Page() {
   const imgBase = '/images/soluciones/negocio360'
 
   const thumbDashboard = `${imgBase}/negocio360-dashboard.jpg`
-  const thumbPos = `${imgBase}/negocio360-pos.jpg`
+  const thumbPos = '/images/ventapos.png'
   const thumbMobile = `${imgBase}/negocio360-celular.jpg`
+  const thumbBarcode = '/images/lector celular.jpg'
 
   const hasVideo = NEGOCIO360_YOUTUBE_ID && NEGOCIO360_YOUTUBE_ID !== 'PEGAR_ID_DEL_VIDEO'
 
   const thumbDashboardSrc = resolvePublicImage(thumbDashboard, fallbackImage)
   const thumbPosSrc = resolvePublicImage(thumbPos, fallbackImage)
   const thumbMobileSrc = resolvePublicImage(thumbMobile, fallbackImage)
+  const thumbBarcodeSrc = resolvePublicImage(thumbBarcode, fallbackImage)
 
   return (
     <div className={`min-h-screen text-foreground ${heroBg}`}>
@@ -217,27 +219,33 @@ export default function Negocio360Page() {
           <p className="text-muted-foreground mb-6 max-w-2xl">Todo lo importante de tu negocio queda ordenado en una sola plataforma, accesible desde el celular o la computadora.</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
-              <img src={thumbDashboardSrc} alt="Dashboard" className="w-full h-56 object-cover rounded-xl" />
-              <div className="p-4 bg-[#030617]">
-                <h4 className="font-semibold mb-1">Dashboard principal</h4>
+            <div className="h-full flex flex-col rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
+              <div className="h-48 w-full shrink-0">
+                <img src={thumbDashboardSrc} alt="Dashboard" className="w-full h-full object-cover" />
+              </div>
+              <div className="h-48 shrink-0 p-4 bg-[#030617]">
+                <h4 className="min-h-12 font-semibold mb-1">Dashboard principal</h4>
                 <p className="text-sm text-muted-foreground">Resumen visual de ventas, caja y alertas del día para decisiones rápidas.</p>
               </div>
             </div>
 
-            <div className="rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
-              <img src={thumbPosSrc} alt="POS" className="w-full h-56 object-cover rounded-xl" />
-              <div className="p-4 bg-[#030617]">
-                <h4 className="font-semibold mb-1">Ventas / POS</h4>
+            <div className="h-full flex flex-col rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
+              <div className="h-48 w-full shrink-0">
+                <img src={thumbPosSrc} alt="POS" className="w-full h-full object-cover" />
+              </div>
+              <div className="h-48 shrink-0 p-4 bg-[#030617]">
+                <h4 className="min-h-12 font-semibold mb-1">Ventas / POS</h4>
                 <p className="text-sm text-muted-foreground">Pantalla de venta rápida, cobros y comprobantes en segundos.</p>
               </div>
             </div>
 
-            <div className="rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
-              <img src={thumbMobileSrc} alt="Desde celular" className="w-full h-56 object-cover rounded-xl" />
-              <div className="p-4 bg-[#030617]">
-                <h4 className="font-semibold mb-1">Uso desde celular</h4>
-                <p className="text-sm text-muted-foreground">Gestioná tu negocio desde cualquier lugar con la app web responsiva.</p>
+            <div className="h-full flex flex-col rounded-xl overflow-hidden shadow-lg p-0 border border-cyan-500/10">
+              <div className="h-48 w-full shrink-0 flex items-center justify-center bg-[#030617]">
+                <img src={thumbBarcodeSrc} alt="Lector de código con celular" className="w-full h-full object-contain" />
+              </div>
+              <div className="h-48 shrink-0 p-4 bg-[#030617]">
+                <h4 className="min-h-12 font-semibold mb-1">Lector de código con celular</h4>
+                <p className="text-sm text-muted-foreground">Escaneá códigos de barras utilizando la cámara de tu celular, sin necesidad de comprar un lector adicional.</p>
               </div>
             </div>
           </div>
